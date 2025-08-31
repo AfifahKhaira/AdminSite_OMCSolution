@@ -14,9 +14,24 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
@@ -48,11 +63,15 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="iTextSharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <HintPath>..\packages\iTextSharp-LGPL.4.1.6\lib\iTextSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -73,6 +92,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseModule.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -80,16 +100,16 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.vb">
-      <DependentUpon>Form2.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form2.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Form4.Designer.vb">
       <DependentUpon>Form4.vb</DependentUpon>
     </Compile>
     <Compile Include="Form4.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPayoutConfirmation.Designer.vb">
+      <DependentUpon>frmPayoutConfirmation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPayoutConfirmation.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -113,16 +133,71 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ucAdminProfile.Designer.vb">
+      <DependentUpon>ucAdminProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ucAdminProfile.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDashboard.Designer.vb">
+      <DependentUpon>ucDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ucDashboard.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEvents.Designer.vb">
+      <DependentUpon>ucEvents.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ucEvents.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucHelps&amp;Supports.Designer.vb">
+      <DependentUpon>ucHelps&amp;Supports.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ucHelps&amp;Supports.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucNotifications.Designer.vb">
+      <DependentUpon>ucNotifications.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ucNotifications.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucReports&amp;Feedbacks.Designer.vb">
+      <DependentUpon>ucReports&amp;Feedbacks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ucReports&amp;Feedbacks.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucRevenue.Designer.vb">
+      <DependentUpon>ucRevenue.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ucRevenue.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSellers.Designer.vb">
+      <DependentUpon>ucSellers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ucSellers.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucUsers.Designer.vb">
+      <DependentUpon>ucUsers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ucUsers.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIHelper.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form4.resx">
       <DependentUpon>Form4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPayoutConfirmation.resx">
+      <DependentUpon>frmPayoutConfirmation.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resource1.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
@@ -134,6 +209,33 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucAdminProfile.resx">
+      <DependentUpon>ucAdminProfile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucDashboard.resx">
+      <DependentUpon>ucDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucEvents.resx">
+      <DependentUpon>ucEvents.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucHelps&amp;Supports.resx">
+      <DependentUpon>ucHelps&amp;Supports.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucNotifications.resx">
+      <DependentUpon>ucNotifications.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucReports&amp;Feedbacks.resx">
+      <DependentUpon>ucReports&amp;Feedbacks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucRevenue.resx">
+      <DependentUpon>ucRevenue.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSellers.resx">
+      <DependentUpon>ucSellers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucUsers.resx">
+      <DependentUpon>ucUsers.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +251,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\Images\msl_logo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +334,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Images\setting_default_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\search_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\dropdown_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\header_picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\sunbear_welcome_picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\sunbear_wrong_picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\calendar_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\organizer_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\revenue_active_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\revenue_default_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\audience_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\add_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\logout_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\password_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\admin_profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\profile_active_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\profile_default_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
